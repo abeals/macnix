@@ -1,4 +1,12 @@
-# nix configuration for my work mac
+# nix configuration for my work mac: Aaron's variant
+
+## Aaron's comments
+
+_[AB] This is a lot like Anders' version upstream, but customized for my usage._
+
+I have concerns about upgrading packages installed via nix, because I want to keep things as up to date as possible for security purposes. However, I'm optimistic that the flakes approach will work.
+
+## Anders' orginal comments
 
 Largely based on examples from https://github.com/ryan4yin/nix-darwin-kickstarter/
 
