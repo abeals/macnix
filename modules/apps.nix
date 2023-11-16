@@ -35,8 +35,13 @@
 
     # `brew install --cask`
     casks = [
+      "brave-browser"
+      "cron"
       "firefox"
-      "google-chrome"
+      "iterm2"
+      "mimestream"
+      "obsidian"
+      "slack"
       "zoom"
     ];
   };
