@@ -1,6 +1,19 @@
 {pkgs, ...}: {
+
+  ###################################################################################
+  #
+  #  macOS's System configuration
+  #
+  #  All the configuration options are documented here:
+  #    https://daiderd.com/nix-darwin/manual/index.html#sec-options
+  #
+  ###################################################################################
+
   system = {
+    # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts.postUserActivation.text = ''
+      # activateSettings -u will reload the settings from the database and apply them to the current session,
+      # so we do not need to logout and login again to make the changes take effect.
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
 
@@ -12,6 +25,7 @@
       };
       CustomUserPreferences = {
         NSGlobalDomain = {
+          # Add a context menu item for showing the Web Inspector in web views
           WebKitDeveloperExtras = true;
         };
         "com.apple.desktopservices" = {
@@ -28,10 +42,23 @@
           location = "~/Desktop";
           type = "png";
         };
+        "com.apple.SoftwareUpdate" = {
+          AutomaticCheckEnabled = true;
+          # Check for software updates daily, not just once per week
+          ScheduleFrequency = 1;
+          # Download newly available updates in background
+          AutomaticDownload = 1;
+          # Install System data files & security updates
+          CriticalUpdateInstall = 1;
+        };
+        "com.apple.TimeMachine".DoNotOfferNewDisksForBackup = true;
         "com.apple.AdLib" = {
           allowApplePersonalizedAdvertising = false;
         };
+        # Prevent Photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
+        # Turn on app auto-update
+        "com.apple.commerce".AutoUpdate = true;
       };
     };
     keyboard = {
