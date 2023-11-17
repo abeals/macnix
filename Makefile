@@ -1,4 +1,4 @@
-HOSTNAME=aeon
+HOSTNAME=delorean
 
 .PHONY: deploy
 deploy:
