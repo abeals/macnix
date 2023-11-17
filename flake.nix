@@ -19,7 +19,7 @@
     darwin,
     ...
   }: {
-    darwinConfigurations.aeon = darwin.lib.darwinSystem {
+    darwinConfigurations.delorean = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./modules/nix-core.nix
