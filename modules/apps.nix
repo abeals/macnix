@@ -35,10 +35,12 @@
 
     # `brew install --cask`
     casks = [
+      "1password"
       "brave-browser"
       "cron"
       "firefox"
       "iterm2"
+      "keepassxc"
       "mimestream"
       "obsidian"
       "slack"
