@@ -6,20 +6,18 @@
   };
 
   inputs = {
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-    darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
-    darwin,
+    nix-darwin,
     ...
   }: {
-    darwinConfigurations.delorean = darwin.lib.darwinSystem {
+    darwinConfigurations.delorean = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./modules/nix-core.nix
