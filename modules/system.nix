@@ -10,6 +10,14 @@
   ###################################################################################
 
   system = {
+    # per instructions.
+    # "the value is used to conditionalize backwards‐incompatible changes
+    # in default settings. You should usually set this once when installing
+    # nix-darwin on a new system and then never change it (at least without
+    # reading all the relevant entries in the changelog using
+    # `darwin-rebuild changelog`).
+    stateVersion = 5;
+
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts.postUserActivation.text = ''
       # activateSettings -u will reload the settings from the database and apply them to the current session,
@@ -73,4 +81,5 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh
   programs.zsh.enable = true;
+
 }
