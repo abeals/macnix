@@ -13,6 +13,7 @@
     tree
     vscode
     wget
+    yubikey-manager
   ];
 
   homebrew = {
@@ -31,13 +32,14 @@
 
     # `brew install`
     brews = [
+       "openssh"
+       "pinentry-mac"
     ];
 
     # `brew install --cask`
     casks = [
       "firefox"
       "google-chrome"
-      "loom"
       "zoom"
     ];
   };
