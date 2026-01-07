@@ -23,33 +23,29 @@
     };
 
     taps = [
-      "homebrew/cask"
-      "homebrew/cask-fonts"
       "homebrew/services"
-      "homebrew/cask-versions"
       "hashicorp/tap"
     ];
 
     # `brew install`
     brews = [
+      "hashicorp/tap/terraform"
     ];
 
     # `brew install --cask`
     casks = [
       "1password"
       "brave-browser"
-      "cron"
-      "docker"
-      "emacs"
+      "docker-desktop"
+      "emacs-app"
       "firefox"
       "iterm2"
       "keepassxc"
       "mimestream"
       "miro"
-      "oath-toolkit"
+      "notion-calendar"
       "obsidian"
       "slack"
-      "hashicorp/tap/terraform"
       "visual-studio-code"
       "zoom"
     ];
