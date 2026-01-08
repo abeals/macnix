@@ -3,12 +3,15 @@ HOSTNAME=delorean
 .PHONY: deploy
 deploy:
 	nix build .#darwinConfigurations.$(HOSTNAME).system --extra-experimental-features 'nix-command flakes'
-	./result/sw/bin/darwin-rebuild switch --flake .#$(HOSTNAME)
+	sudo ./result/sw/bin/darwin-rebuild switch --flake .#$(HOSTNAME)
 
 
 .PHONY: update
 update:
 	nix flake update
+
+.PHONY: upgrade
+upgrade: update deploy
 
 .PHONY: fmt
 fmt:
